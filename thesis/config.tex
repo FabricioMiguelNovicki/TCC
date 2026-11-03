@@ -1,0 +1,122 @@
+% =============================================================
+% CONFIGURAÇÃO GERAL - UFSC / ABNT
+% Compilar com pdfLaTeX + BibTeX (ou latexmk -pdf).
+% =============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% O template Word utiliza Arial. Helvetica (pacote helvet) é a aproximação
+% livre e portátil adotada aqui para compilar sem arquivos de fonte externos.
+\usepackage[scaled=0.97]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[alf]{abntex2cite}
+
+% -------------------------------------------------------------
+% Página e parágrafos - conforme o template fornecido
+% Superior/esquerda: 3 cm; inferior/direita: 2 cm.
+% Corpo: 12 pt, espaçamento 1,5; recuo de primeira linha: 1,5 cm.
+% -------------------------------------------------------------
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+
+\setlength{\parindent}{1.5cm}
+\setlength{\parskip}{0pt}
+\OnehalfSpacing
+
+% -------------------------------------------------------------
+% Títulos
+% -------------------------------------------------------------
+\renewcommand{\ABNTEXchapterfont}{\bfseries\normalsize}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfont}{\normalfont\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+% Capítulos iniciam em nova página (comportamento padrão da classe).
+\setbeforesecskip{1.5\onelineskip}
+\setaftersecskip{0.5\onelineskip}
+
+
+% -------------------------------------------------------------
+% Aparência dos capítulos e dos títulos pré-textuais.
+%
+% Capítulos numerados: alinhados à esquerda, no formato "1 - INTRODUÇÃO".
+% Elementos pré-textuais não numerados: centralizados, em negrito e caixa alta,
+% conforme o template da Engenharia Mecânica/UFSC.
+% -------------------------------------------------------------
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{}
+\renewcommand{\printchapternum}{\thechapter.\space}
+\renewcommand{\afterchapternum}{}
+
+\makeatletter
+\renewcommand{\printchaptertitle}[1]{%
+  \ifthenelse{\boolean{abntex@innonumchapter}}{%
+    \centering\bfseries\normalsize\MakeUppercase{#1}%
+  }{%
+    \raggedright\bfseries\normalsize\MakeUppercase{#1}%
+  }%
+}
+\makeatother
+
+% O ambiente de resumo do abnTeX2 usa uma formatação própria para o título.
+% A definição abaixo garante o mesmo padrão: negrito, centralizado e caixa alta.
+\renewcommand{\abstractnamefont}{\bfseries\normalsize}
+
+% -------------------------------------------------------------
+% Legendas
+% Figuras: legenda abaixo (controle pela posição de \caption).
+% Tabelas: legenda acima (controle pela posição de \caption).
+% -------------------------------------------------------------
+\captionsetup{font=small,labelfont=normalfont,labelsep=endash,justification=centering}
+
+% -------------------------------------------------------------
+% Numeração no canto superior direito apenas a partir da Introdução.
+% -------------------------------------------------------------
+\makepagestyle{ufsc}
+\makeoddhead{ufsc}{}{}{\normalsize\thepage}
+\makeevenhead{ufsc}{}{}{\normalsize\thepage}
+\makeoddfoot{ufsc}{}{}{}
+\makeevenfoot{ufsc}{}{}{}
+\aliaspagestyle{chapter}{ufsc}
+
+% -------------------------------------------------------------
+% Links discretos no PDF.
+% -------------------------------------------------------------
+\hypersetup{
+    pdftitle={\tituloTCC},
+    pdfauthor={\autorTCC},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black,
+    bookmarksdepth=4
+}
+
+% -------------------------------------------------------------
+% Atalhos úteis
+% -------------------------------------------------------------
+\newcommand{\propeller}{\textit{propeller}}
+\newcommand{\propellers}{\textit{propellers}}
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}

@@ -1,0 +1,1 @@
+Undergraduate thesis project on multidisciplinary propeller geometry optimization using aerodynamic (BEMT), structural, and aeroacoustic (Hanson) models, with experimental validation.

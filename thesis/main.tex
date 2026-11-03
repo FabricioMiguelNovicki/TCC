@@ -1,0 +1,83 @@
+\documentclass[12pt,openany,oneside,a4paper,english,brazil]{abntex2}
+
+\input{metadata}
+\input{config}
+
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing
+
+% Títulos dos elementos pré-textuais conforme o template UFSC.
+\renewcommand{\agradecimentosname}{AGRADECIMENTOS}
+\renewcommand{\resumoname}{RESUMO}
+\renewcommand{\listfigurename}{LISTA DE FIGURAS}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+\renewcommand{\listadesiglasname}{LISTA DE ABREVIATURAS E SIGLAS}
+\renewcommand{\listadesimbolosname}{LISTA DE SÍMBOLOS}
+\renewcommand{\contentsname}{SUMÁRIO}
+
+% =============================================================
+% CAPA - não contada e não paginada.
+% =============================================================
+\pagenumbering{gobble}
+\input{pretextual/capa}
+\clearpage
+
+% A partir da folha de rosto, páginas pré-textuais são contadas,
+% mas o número não é exibido.
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pretextual
+\pagestyle{empty}
+
+\input{pretextual/folha_rosto}
+\input{pretextual/ficha_catalografica}
+\input{pretextual/folha_aprovacao}
+
+% Elementos opcionais: mantenha, edite ou comente as linhas abaixo.
+\input{pretextual/dedicatoria}
+\input{pretextual/agradecimentos}
+\input{pretextual/epigrafe}
+
+\input{pretextual/resumo}
+\input{pretextual/abstract}
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+\input{pretextual/siglas}
+\input{pretextual/simbolos}
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% =============================================================
+% ELEMENTOS TEXTUAIS - numeração visível a partir da Introdução.
+% =============================================================
+\textual
+\pagestyle{ufsc}
+\aliaspagestyle{chapter}{ufsc}
+
+\include{chapters/01_introducao}
+\include{chapters/02_revisao_bibliografica}
+\include{chapters/03_metodologia}
+\include{chapters/04_resultados}
+\include{chapters/05_conclusoes}
+
+% =============================================================
+% ELEMENTOS PÓS-TEXTUAIS
+% =============================================================
+\postextual
+
+\bibliography{references}
+
+\include{appendices/apendice_a}
+% \include{appendices/anexo_a}
+
+\end{document}

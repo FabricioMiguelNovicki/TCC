@@ -1,0 +1,50 @@
+\chapter{Metodologia}
+\label{chap:metodologia}
+
+\section{Visão geral da metodologia}
+\label{sec:workflow}
+\todo{Inserir o workflow completo: geometria $\rightarrow$ módulos aerodinâmico/estrutural/aeroacústico $\rightarrow$ objetivos e restrições $\rightarrow$ otimizador $\rightarrow$ nova geometria.}
+
+\section{Definição do problema de projeto}
+\label{sec:definicao_problema}
+
+\subsection{Parâmetros de entrada e condições operacionais}
+\todo{Consolidar limitações geométricas, material, número de pás, dados do motor, velocidade de avanço, rotação e condições atmosféricas.}
+
+\subsection{Variáveis de projeto}
+\todo{Definir formalmente os parâmetros efetivamente manipulados pelo otimizador: por exemplo, distribuições de corda e torção e demais variáveis que forem mantidas no escopo final.}
+
+\subsection{Funções objetivo e restrições}
+\todo{Formalizar matematicamente objetivos aerodinâmicos/acústicos e restrições estruturais e operacionais.}
+
+\section{Módulo aerodinâmico}
+\label{sec:met_bemt}
+\todo{Descrever a implementação da BEMT: discretização radial, cálculo iterativo, polares, convergência e outputs $T$, $Q$, potência e eficiência.}
+
+\section{Módulo estrutural}
+\label{sec:met_estrutural}
+\todo{Descrever o modelo estrutural analítico utilizado dentro do loop de otimização.}
+
+\section{Módulo aeroacústico}
+\label{sec:met_hanson}
+\todo{Descrever a implementação da formulação de Hanson e o indicador acústico escolhido para a função objetivo.}
+
+\section{Integração dos módulos}
+\label{sec:integracao}
+\todo{Definir interfaces entre os módulos, unidades, estruturas de dados e sequência de execução.}
+
+\section{Algoritmo de otimização}
+\label{sec:met_otimizacao}
+\todo{Apresentar o método escolhido, população/pontos iniciais, critérios de parada, tratamento de restrições e reprodutibilidade.}
+
+\section{Estratégia de validação}
+\label{sec:validacao}
+
+\subsection{Validação aerodinâmica}
+\todo{Comparação com dados experimentais de empuxo, torque e/ou potência.}
+
+\subsection{Validação aeroacústica}
+\todo{Comparação com medições de SPL e harmônicos de BPF.}
+
+\subsection{Validação estrutural por FEM}
+\todo{Usar o FEM como referência de validação do modelo estrutural simplificado, não necessariamente dentro do loop do otimizador. Incluir análise modal se mantida no escopo final.}
